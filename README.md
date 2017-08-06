@@ -1,6 +1,8 @@
 # MoMath Hackathon 2017: Ramsey Run
 
-Project category: Math Square behavior Team members: David Hamberlin, Arturo Ruvalcaba, Skona Brittain
+Project category: Math Square behavior
+
+Team members: David Hamberlin, Arturo Ruvalcaba, Skona Brittain
 
 ## The Math
 
