@@ -96,16 +96,11 @@ draw(activeSensors) {
         const strokeColor = vertex === this.active ? this.currentColor : WHITE;
         const outlineWeight = vertex === this.active ? 6 : 0
         const fillColor = currentlySteppedOn ? this.currentColor : vertex.color;
-        const radii = currentlySteppedOn ? 32 : 24;
+        const radii = currentlySteppedOn ? 52 : 32;
 
         pb.p5.noStroke();
         pb.p5.fill(fillColor);
         pb.p5.ellipse(vertex.x, vertex.y, radii);
-
-        // pb.p5.noFill();
-        // pb.p5.strokeWeight(6);
-        // pb.p5.stroke.apply(pb.p5, vertex.bg);
-        // pb.p5.ellipse(vertex.x, vertex.y, radii);
 
         pb.p5.strokeWeight(outlineWeight);
         pb.p5.stroke(strokeColor);
@@ -234,7 +229,6 @@ pb.setup = function(p) {
 
 pb.draw = function(floor, p) {
     this.background(BLACK);
-    // this.image(img, 0, 0);
     this.noStroke();
     this.fill(dim(140), dim(36), dim(41));
     this.rect(0, 0, 256, 256);
@@ -245,34 +239,23 @@ pb.draw = function(floor, p) {
     this.fill(dim(54), dim(118), dim(54));
     this.rect(320, 320, 256, 256);
     // TEXT
-    this.fill(WHITE);
+    this.fill('#999999');
     this.strokeWeight(1);
     this.noStroke();
     this.textSize(22);
     this.text("Try to make (or avoid making) a triangle in", 30, 295)
     this.fill(RED);
-    this.noStroke();
+    this.strokeWeight(2);
+    this.stroke(RED)
     this.text("your", 448, 295)
-    this.fill(BLUE);
-    this.noStroke();
-    this.text("color.", 496, 295)
+    this.fill(8, 123, 255);
+    this.stroke(8, 123, 255);
+    this.text("color", 496, 295)
     this.noFill();
     this.noStroke();
     this.strokeWeight(1);
     this.stroke('#000000');
 
-
-    // draw grid
-    // for(var i = 1; i < 72; i++) {
-    // this.stroke('#DDD');
-    // this.line(i * 8, 0, i * 8, 72 * 8);
-    // this.line(0, i * 8, 72 * 8, i * 8);
-    // }
-    // for(var i = 1; i < 12; i++) {
-    // this.stroke('#AAA');
-    // this.line(i * 8 * 6, 0, i * 8 * 6, 72 * 8);
-    // this.line(0, i * 8 * 6, 72 * 8, i * 8 * 6);
-    // }
     const activeSensors = [];
     for (var i = new Sensor.Index(); i; i = i.incr()) {
         if (floor.sensors.get(i)) {
